@@ -6,7 +6,7 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 14:37:50 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/29 21:14:22 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/29 22:34:45 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # define TRUE 1
 # define FALSE 0
+# define VERBOSE 0
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
