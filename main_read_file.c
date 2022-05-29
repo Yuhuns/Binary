@@ -6,7 +6,7 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 21:57:50 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/29 22:39:01 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/29 22:48:45 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int     main(int ac, char **av)
         
  
         fichier = fopen("./files/test.awallet", "rb");
-        packet = ft_instanciate(1024);
+        packet = ft_instanciate(512);
         fread(packet->buffer, sizeof(packet), sizeof(packet), fichier);
         printf("%s\n", ft_rchaine(packet));
         printf("%i\n", ft_rint(packet));
