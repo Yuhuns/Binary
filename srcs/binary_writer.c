@@ -6,7 +6,7 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 15:05:30 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/29 17:58:24 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/29 20:19:15 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,26 @@ void	ft_wbool(struct s_chaineoctet *self, unsigned int valeur)
 {
 	self->len += 1;
 	self->buffer[self->pos++] = valeur;
+}
+
+void	ft_encrypt(struct s_chaineoctet *self, unsigned int valeur)
+{
+	int	index;
+
+	index = -1;
+	while (++index < self->len)
+		self->buffer[index] = (self->buffer[index]
+				^ self->buffer[index - 1]) ^ (valeur & 255);
+}
+
+void	ft_decrypt(struct s_chaineoctet *self, unsigned int valeur)
+{
+	int	index;
+
+	index = self->len;
+	while (index--)
+		self->buffer[index] = (self->buffer[index]
+				^ self->buffer[index - 1]) ^ (valeur & 255);
 }
 
 void	ft_wbyte(struct s_chaineoctet *self, int entier)
