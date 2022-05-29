@@ -6,7 +6,7 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:17:17 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/29 20:48:14 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/29 20:56:42 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ void	ft_wchaine(struct s_chaineoctet *self, char *string)
 			self->buffer[self->pos++] = *string++;
 	}
 }
-//! Amélioration nécessaire :)
 
 unsigned char	*ft_rchaine(struct s_chaineoctet *self)
 {
 	unsigned int	length;
+	unsigned char	s[65635];
 	unsigned int	i;
 
 	length = ft_rshort(self);
-	while (length--)
-		ft_putchar_fd(self->buffer[self->pos++], 1);
-	return ("");
+	i = -1;
+	while (++i < length)
+		s[i] = self->buffer[self->pos++];
+	return (s);
 }
