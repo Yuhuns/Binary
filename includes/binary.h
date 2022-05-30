@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   binary.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 14:37:50 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 15:43:42 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/30 20:14:19 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <string.h>
+# include <math.h>
 
 struct	s_chaineoctet
 {
@@ -44,6 +45,8 @@ unsigned int	ft_rbool(struct s_chaineoctet *self);
 signed int	ft_rbyte(struct s_chaineoctet *self);
 signed short	ft_rshort(struct s_chaineoctet *self);
 signed int	ft_rint(struct s_chaineoctet *self);
+void	ft_ecr(struct s_chaineoctet *self, int entier);
+signed int     ft_lec(struct s_chaineoctet *self);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_bufferoverflow(void);
 void	ft_hexdump(struct s_chaineoctet *buf);
