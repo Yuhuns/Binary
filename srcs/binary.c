@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   binary.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 14:34:11 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/29 22:33:29 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/30 12:57:14 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ struct s_chaineoctet	*ft_instanciate(unsigned int bufsize)
 	struct s_chaineoctet	*this;
 
 	this = malloc(sizeof(struct s_chaineoctet));
+	if (!this)
+		return (NULL);
 	this->buffer = malloc(bufsize);
 	this->bufsize = bufsize;
 	this->len = 0;
