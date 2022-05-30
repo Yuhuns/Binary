@@ -6,7 +6,7 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 14:37:50 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/29 22:34:45 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/30 12:40:32 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ unsigned int	ft_rubyte(struct s_chaineoctet *self);
 unsigned int	ft_rushort(struct s_chaineoctet *self);
 size_t	ft_strlen(const char *s);
 void	ft_wchaine(struct s_chaineoctet *self, char *string);
-unsigned char	*ft_rchaine(struct s_chaineoctet *self);
+const char	*ft_rchaine(struct s_chaineoctet *self);
 void	ft_chardump(struct s_chaineoctet *buf);
 void	ft_putchar_fd(char c, int fd);
 void	ft_encrypt(struct s_chaineoctet *self, unsigned int valeur);

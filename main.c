@@ -6,7 +6,7 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 15:12:51 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/29 21:43:21 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/30 12:44:28 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	ft_hexdump(buf);
 	packet = buf;
 	ft_initialize(packet, buf->buffer, buf->len);
-	ft_decrypt(packet, -41198); //permet d'enlever l'encryption du packet
+	ft_decrypt(packet, -0); //permet d'enlever l'encryption du packet
 	ft_hexdump(packet);
 	printf("%i\n", ft_rbyte(packet));
 	printf("%i\n", ft_rshort(packet));
