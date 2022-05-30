@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   binary.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 14:37:50 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 12:40:32 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/30 12:55:36 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ struct	s_chaineoctet
 	unsigned int	bufsize;
 	unsigned int	len;
 	unsigned int	pos;
-}	t_chaineoctet;
+};	
+typedef struct s_chaineoctet	t_chaineoctet;
 
 void					ft_initialize(struct s_chaineoctet *bin, unsigned char *buf, ...);
 struct s_chaineoctet	*ft_instanciate(unsigned int bufsize);
