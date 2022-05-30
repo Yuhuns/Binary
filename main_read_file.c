@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_read_file.C                                   :+:      :+:    :+:   */
+/*   main_read_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 21:57:50 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 12:42:17 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/30 15:37:09 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,26 @@ int     main(int ac, char **av)
         FILE *fichier = NULL;
         struct s_chaineoctet	*packet;
         unsigned char           data;
-        const char              *header;
+        char              *magic_header;
         unsigned int            boolean;
         
- 
         fichier = fopen(av[1], "rb");
         packet = ft_instanciate(512);
         fread(packet->buffer, sizeof(packet), sizeof(packet), fichier);
-        header = ft_rchaine(packet);
+        magic_header = ft_rbrutechaine(packet);
         boolean = ft_rbool(packet);
-        if (header == (char *)"AWALLET42")
-                printf("Oui c'est bon");
+        if (strcmp(magic_header, FILE_HEADER) == 0)
+                printf("MAGIC HEADER : OK");
+        else if (strcmp(magic_header, "NES") == 0)
+        {
+                printf("prg rom: %u \n", ft_rubyte(packet));
+                printf("chr rom: %u \n", ft_rubyte(packet));
+                printf("flags_6: %u \n", ft_rubyte(packet));
+                printf("flags_7: %u \n", ft_rubyte(packet));
+                printf("prg_ram: %u \n", ft_rubyte(packet));
+                printf("flags_9: %u \n", ft_rubyte(packet));
+        }
         else
-                printf("probleme boolean=%s", header);
-        fclose(fichier);	
+                printf("BAD HEADER EXPECTED %s RESULT -> %s", FILE_HEADER, magic_header);
+        fclose(fichier);
 }
