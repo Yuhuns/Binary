@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 21:57:50 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 15:37:09 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/30 16:02:17 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ int     main(int ac, char **av)
         magic_header = ft_rbrutechaine(packet);
         boolean = ft_rbool(packet);
         if (strcmp(magic_header, FILE_HEADER) == 0)
-                printf("MAGIC HEADER : OK");
+        {
+                printf("MAGIC HEADER : OK\n");
+                printf("bool: %u \n", ft_rbool(packet));
+                printf("phrase: %s \n", ft_rbchaine(packet));
+        }
         else if (strcmp(magic_header, "NES") == 0)
         {
                 printf("prg rom: %u \n", ft_rubyte(packet));

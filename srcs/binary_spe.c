@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   binary_spe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:52:06 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 20:57:38 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/31 11:52:48 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/binary.h"
+
+static unsigned int	ft_hasmore(int rest, int end, int entier)
+{
+	return (rest != end || ((rest & 1) != ((entier >> 6) & 1)));
+}
+
+static signed int	ft_sign(signed int s_b, signed int res)
+{
+	if (((s_b >> 1) & res) != 0)
+		res |= s_b;
+	return (res);
+}
 
 void	ft_ecr(struct s_chaineoctet *self, int entier)
 {
@@ -19,8 +31,6 @@ void	ft_ecr(struct s_chaineoctet *self, int entier)
 	int	end;
 	int	spe;
 
-	if (isnan(entier))
-		entier = 0;
 	rest = entier >> 7;
 	has_more = TRUE;
 	if ((entier & 0x80000000) == 0)
@@ -29,7 +39,7 @@ void	ft_ecr(struct s_chaineoctet *self, int entier)
 		end = -1;
 	while (has_more)
 	{
-		has_more = (rest != end) || ((rest & 1) != ((entier >> 6) & 1));
+		has_more = ft_hasmore(rest, end, entier);
 		if (has_more)
 			spe = 0x80;
 		else
@@ -52,10 +62,13 @@ signed int	ft_lec(struct s_chaineoctet *self)
 	cur = 0;
 	count = 0;
 	sign_bits = -1;
-	cur = ft_rbyte(self);
-	result |= (cur & 0x7F) << (count * 7);
-	sign_bits <<= 7;
-	count++;
+	if (cur == 0)
+	{
+		cur = ft_rbyte(self);
+		result |= (cur & 0x7F) << (count * 7);
+		sign_bits <<= 7;
+		count++;
+	}
 	while (((cur & 0x80) == 0x80) && count < 5)
 	{
 		cur = ft_rbyte(self);
@@ -63,7 +76,6 @@ signed int	ft_lec(struct s_chaineoctet *self)
 		sign_bits <<= 7;
 		count++;
 	}
-	if (((sign_bits >> 1) & result) != 0)
-		result |= sign_bits;
+	result = ft_sign(sign_bits, result);
 	return (result);
 }

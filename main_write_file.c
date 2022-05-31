@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 21:06:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 14:56:39 by awallet          ###   ########.fr       */
+/*   Updated: 2022/05/30 16:10:49 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int     main(int ac, char **av)
  
         fichier = fopen(av[1], "wb");
 
-        buf = ft_instanciate(512);
-        ft_wbrutechaine(buf, "AWALLET42"); //header
-        ft_wbool(buf, TRUE);
-        ft_wbchaine(buf, "Melodie aime les billy");
-        ft_wint(buf, buf->len);
+        buf = ft_instanciate(42);
+        ft_wbrutechaine(buf, "42"); //magic header
+        ft_wichaine(buf, "string");
+        ft_wbchaine(buf, "42");
+        ft_wichaine(buf, "42 file");
 
-        fwrite(buf->buffer, sizeof(t_chaineoctet), buf->len, fichier);
+        fwrite(buf->buffer, sizeof(t_chaineoctet), 42, fichier);
         fclose(fichier);	
 }
