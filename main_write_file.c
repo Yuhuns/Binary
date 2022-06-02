@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_write_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 21:06:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 16:10:49 by awallet          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int     main(int ac, char **av)
 {
         FILE *fichier = NULL;
-        struct s_chaineoctet	*buf;
-        struct s_chaineoctet	*packet;
+        t_chaineoctet	*buf;
+        t_chaineoctet	*packet;
         unsigned char           data;
         
  

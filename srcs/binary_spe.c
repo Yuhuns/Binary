@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   binary_spe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:52:06 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/31 11:52:48 by awallet          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static signed int	ft_sign(signed int s_b, signed int res)
 	return (res);
 }
 
-void	ft_ecr(struct s_chaineoctet *self, int entier)
+void	ft_ecr(t_chaineoctet *self, int entier)
 {
 	int	rest;
 	int	has_more;
@@ -51,7 +51,7 @@ void	ft_ecr(struct s_chaineoctet *self, int entier)
 	}
 }
 
-signed int	ft_lec(struct s_chaineoctet *self)
+signed int	ft_lec(t_chaineoctet *self)
 {
 	signed int	result;
 	signed int	cur;

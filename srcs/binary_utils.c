@@ -6,7 +6,7 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:45:25 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/29 22:34:31 by awallet          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_bufferoverflow(void)
 		ft_putstr_fd("ERREUR:\n Dépassement du tampon !", 2);
 }
 
-void	ft_hexdump(struct s_chaineoctet *buf)
+void	ft_hexdump(t_chaineoctet *buf)
 {
 	unsigned int	i;
 

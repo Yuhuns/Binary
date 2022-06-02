@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   binary.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 14:34:11 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 12:57:14 by awallet          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/binary.h"
 
-struct s_chaineoctet	*ft_instanciate(unsigned int bufsize)
+t_chaineoctet	*ft_instanciate(unsigned int bufsize)
 {
-	struct s_chaineoctet	*this;
+	t_chaineoctet	*this;
 
-	this = malloc(sizeof(struct s_chaineoctet));
+	this = malloc(sizeof(t_chaineoctet));
 	if (!this)
 		return (NULL);
 	this->buffer = malloc(bufsize);
@@ -26,7 +26,7 @@ struct s_chaineoctet	*ft_instanciate(unsigned int bufsize)
 	return (this);
 }
 
-void	ft_initialize(struct s_chaineoctet *bin, unsigned char *buf, ...)
+void	ft_initialize(t_chaineoctet *bin, unsigned char *buf, ...)
 {
 	va_list	args;
 
@@ -38,7 +38,7 @@ void	ft_initialize(struct s_chaineoctet *bin, unsigned char *buf, ...)
 	va_end(args);
 }
 
-unsigned int	ft_getpos(struct s_chaineoctet *this)
+unsigned int	ft_getpos(t_chaineoctet *this)
 {
 	return (this->pos);
 }

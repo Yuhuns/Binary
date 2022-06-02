@@ -6,7 +6,7 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 15:12:51 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 20:59:27 by awallet          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(void)
 {
-	struct s_chaineoctet	*buf;
-	struct s_chaineoctet	*packet;
+	t_chaineoctet	*buf;
+	t_chaineoctet	*packet;
 
 	buf = ft_instanciate(1024);
 	ft_ecr(buf, -8000000);

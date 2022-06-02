@@ -6,13 +6,13 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:07:00 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/29 19:53:32 by awallet          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/binary.h"
 
-unsigned int	ft_rubyte(struct s_chaineoctet *self)
+unsigned int	ft_rubyte(t_chaineoctet *self)
 {
 	unsigned int	x;
 
@@ -22,7 +22,7 @@ unsigned int	ft_rubyte(struct s_chaineoctet *self)
 	return (x);
 }
 
-unsigned int	ft_rushort(struct s_chaineoctet *self)
+unsigned int	ft_rushort(t_chaineoctet *self)
 {
 	unsigned int	x;
 

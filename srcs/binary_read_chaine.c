@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   binary_read_chaine.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:50:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/05/30 15:30:25 by awallet          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/binary.h"
 
-char	*ft_rbchaine(struct s_chaineoctet *self)
+char	*ft_rbchaine(t_chaineoctet *self)
 {
 	unsigned int	length;
 	char			*s;
@@ -28,7 +28,7 @@ char	*ft_rbchaine(struct s_chaineoctet *self)
 	return (s);
 }
 
-char	*ft_rbrutechaine(struct s_chaineoctet *self)
+char	*ft_rbrutechaine(t_chaineoctet *self)
 {
 	char			*s;
 	unsigned int	i;
@@ -42,7 +42,7 @@ char	*ft_rbrutechaine(struct s_chaineoctet *self)
 	return (s);
 }
 
-char	*ft_rschaine(struct s_chaineoctet *self)
+char	*ft_rschaine(t_chaineoctet *self)
 {
 	unsigned int	length;
 	char			*s;
@@ -58,7 +58,7 @@ char	*ft_rschaine(struct s_chaineoctet *self)
 	return (s);
 }
 
-char	*ft_richaine(struct s_chaineoctet *self)
+char	*ft_richaine(t_chaineoctet *self)
 {
 	unsigned int	length;
 	char			*s;
