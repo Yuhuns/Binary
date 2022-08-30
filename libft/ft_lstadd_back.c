@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_utils.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 16:45:25 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 15:24:04 by awallet          ###   ########.fr       */
+/*   Created: 2022/05/06 15:29:26 by awallet           #+#    #+#             */
+/*   Updated: 2022/08/07 18:37:46 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include "libft.h"
 
-void	ft_bufferoverflow(void)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (VERBOSE)
-		ft_putstr_fd("ERREUR:\n Dépassement du tampon !", 2);
-}
+	t_list	*last;
 
-void	ft_hexdump(t_chaineoctet *buf)
-{
-	unsigned int	i;
-
-	i = -1;
-	printf("Binary result: \n");
-	while (++i < buf->len)
-		printf("\\x%02x", buf->buffer[i]);
-	printf("\n");
-	printf("-------\n");
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_lstlast(*lst);
+	last->next = new;
 }

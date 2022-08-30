@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_utils.c                                     :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 16:45:25 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 15:24:04 by awallet          ###   ########.fr       */
+/*   Created: 2022/04/17 14:37:50 by awallet           #+#    #+#             */
+/*   Updated: 2022/05/04 12:50:58 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
-
-void	ft_bufferoverflow(void)
+int	ft_isalpha(int c)
 {
-	if (VERBOSE)
-		ft_putstr_fd("ERREUR:\n Dépassement du tampon !", 2);
-}
-
-void	ft_hexdump(t_chaineoctet *buf)
-{
-	unsigned int	i;
-
-	i = -1;
-	printf("Binary result: \n");
-	while (++i < buf->len)
-		printf("\\x%02x", buf->buffer[i]);
-	printf("\n");
-	printf("-------\n");
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
 }

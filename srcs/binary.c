@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   binary.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 14:34:11 by awallet           #+#    #+#             */
-/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
+/*   Updated: 2022/08/30 16:43:52 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 t_chaineoctet	*ft_instanciate(unsigned int bufsize)
 {
-	t_chaineoctet	*this;
+	t_chaineoctet	*self;
 
-	this = malloc(sizeof(t_chaineoctet));
-	if (!this)
+	self = malloc(sizeof(t_chaineoctet));
+	if (!self)
 		return (NULL);
-	this->buffer = malloc(bufsize);
-	this->bufsize = bufsize;
-	this->len = 0;
-	this->pos = 0;
-	return (this);
+	self->buffer = ft_calloc(1, bufsize);
+	self->bufsize = bufsize;
+	self->len = 0;
+	self->pos = 0;
+	return (self);
 }
 
-void	ft_initialize(t_chaineoctet *bin, unsigned char *buf, ...)
+void	ft_init(t_chaineoctet *bin, unsigned char *b, ...)
 {
 	va_list	args;
 
-	va_start(args, buf);
-	bin->buffer = buf;
+	va_start(args, b);
+	bin->buffer = b;
 	bin->len = va_arg(args, unsigned int);
 	bin->bufsize = 0;
 	bin->pos = 0;

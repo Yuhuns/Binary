@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_utils.c                                     :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 16:45:25 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 15:24:04 by awallet          ###   ########.fr       */
+/*   Created: 2022/08/07 19:06:55 by awallet           #+#    #+#             */
+/*   Updated: 2022/08/07 19:06:58 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
-
-void	ft_bufferoverflow(void)
+void	ft_swap(int *a, int *b)
 {
-	if (VERBOSE)
-		ft_putstr_fd("ERREUR:\n Dépassement du tampon !", 2);
-}
+	int	tmp;
 
-void	ft_hexdump(t_chaineoctet *buf)
-{
-	unsigned int	i;
-
-	i = -1;
-	printf("Binary result: \n");
-	while (++i < buf->len)
-		printf("\\x%02x", buf->buffer[i]);
-	printf("\n");
-	printf("-------\n");
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_utils.c                                     :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 16:45:25 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 15:24:04 by awallet          ###   ########.fr       */
+/*   Created: 2022/07/26 21:05:15 by awallet           #+#    #+#             */
+/*   Updated: 2022/07/26 21:34:26 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include "libft.h"
 
-void	ft_bufferoverflow(void)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	if (VERBOSE)
-		ft_putstr_fd("ERREUR:\n Dépassement du tampon !", 2);
-}
-
-void	ft_hexdump(t_chaineoctet *buf)
-{
-	unsigned int	i;
-
-	i = -1;
-	printf("Binary result: \n");
-	while (++i < buf->len)
-		printf("\\x%02x", buf->buffer[i]);
-	printf("\n");
-	printf("-------\n");
+	while (*dest)
+		*dest = *src++;
+	return (dest);
 }

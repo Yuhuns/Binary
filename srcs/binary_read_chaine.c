@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   binary_read_chaine.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:50:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
+/*   Updated: 2022/08/30 17:10:16 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_rbchaine(t_chaineoctet *self)
 	unsigned int	i;
 
 	length = ft_rbyte(self);
-	s = malloc(sizeof(char) * length);
+	s = ft_calloc(1, sizeof(char *) * length);
 	if (!s)
 		return (NULL);
 	i = -1;
@@ -33,7 +33,7 @@ char	*ft_rbrutechaine(t_chaineoctet *self)
 	char			*s;
 	unsigned int	i;
 
-	s = malloc(sizeof(char *));
+	s = ft_calloc(1, sizeof(char *));
 	if (!s)
 		return (NULL);
 	i = -1;
@@ -49,7 +49,7 @@ char	*ft_rschaine(t_chaineoctet *self)
 	unsigned int	i;
 
 	length = ft_rshort(self);
-	s = malloc(sizeof(char) * length);
+	s = ft_calloc(1, sizeof(char *) * length);
 	if (!s)
 		return (NULL);
 	i = -1;
@@ -60,12 +60,12 @@ char	*ft_rschaine(t_chaineoctet *self)
 
 char	*ft_richaine(t_chaineoctet *self)
 {
-	unsigned int	length;
-	char			*s;
-	unsigned int	i;
+	int		length;
+	int		i;
+	char	*s;
 
 	length = ft_rint(self);
-	s = malloc(sizeof(char) * length);
+	s = ft_calloc(1, sizeof(char *) * length);
 	if (!s)
 		return (NULL);
 	i = -1;

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_utils.c                                     :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 16:45:25 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 15:24:04 by awallet          ###   ########.fr       */
+/*   Created: 2022/07/26 21:01:27 by awallet           #+#    #+#             */
+/*   Updated: 2022/07/26 21:34:01 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include "libft.h"
 
-void	ft_bufferoverflow(void)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	if (VERBOSE)
-		ft_putstr_fd("ERREUR:\n Dépassement du tampon !", 2);
-}
+	const char	*s1 = s;
+	const char	*s2;
 
-void	ft_hexdump(t_chaineoctet *buf)
-{
-	unsigned int	i;
-
-	i = -1;
-	printf("Binary result: \n");
-	while (++i < buf->len)
-		printf("\\x%02x", buf->buffer[i]);
-	printf("\n");
-	printf("-------\n");
+	while (*s1)
+	{
+		s2 = reject;
+		while (*s2)
+		{
+			if (*s1 == *s2++)
+				return (s1 - s);
+		}
+		s1++;
+	}
+	return (s1 - s);
 }

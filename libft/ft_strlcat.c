@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_utils.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 16:45:25 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 15:24:04 by awallet          ###   ########.fr       */
+/*   Created: 2022/03/15 17:07:39 by awallet           #+#    #+#             */
+/*   Updated: 2022/05/12 12:49:09 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include "libft.h"
 
-void	ft_bufferoverflow(void)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	if (VERBOSE)
-		ft_putstr_fd("ERREUR:\n Dépassement du tampon !", 2);
-}
+	size_t	i;
+	size_t	len_dest;
+	size_t	len_src;
 
-void	ft_hexdump(t_chaineoctet *buf)
-{
-	unsigned int	i;
-
-	i = -1;
-	printf("Binary result: \n");
-	while (++i < buf->len)
-		printf("\\x%02x", buf->buffer[i]);
-	printf("\n");
-	printf("-------\n");
+	len_dest = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	i = 0;
+	if (size <= len_dest)
+		return (len_src + size);
+	while (*dst)
+		dst++;
+	while (*src && i < (size - len_dest - 1))
+	{
+		*dst = *src;
+		dst++;
+		src++;
+		i++;
+	}
+	*dst = '\0';
+	return (len_dest + len_src);
 }

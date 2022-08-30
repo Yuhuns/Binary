@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_utils.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 16:45:25 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 15:24:04 by awallet          ###   ########.fr       */
+/*   Created: 2022/03/23 21:22:30 by awallet           #+#    #+#             */
+/*   Updated: 2022/07/19 21:39:05 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include "libft.h"
 
-void	ft_bufferoverflow(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (VERBOSE)
-		ft_putstr_fd("ERREUR:\n Dépassement du tampon !", 2);
-}
+	char	*result;
+	size_t	i;
+	size_t	n;
 
-void	ft_hexdump(t_chaineoctet *buf)
-{
-	unsigned int	i;
-
+	if (!s1 || !s2)
+		return (NULL);
+	i = (ft_strlen(s1) + ft_strlen(s2)) + 1;
+	result = ft_calloc(i, sizeof(char));
+	if (!result)
+		return (NULL);
 	i = -1;
-	printf("Binary result: \n");
-	while (++i < buf->len)
-		printf("\\x%02x", buf->buffer[i]);
-	printf("\n");
-	printf("-------\n");
+	while (s1[++i])
+		result[i] = s1[i];
+	n = -1;
+	while (s2[++n])
+		result[i + n] = s2[n];
+	result[i + n] = 0;
+	return (result);
 }

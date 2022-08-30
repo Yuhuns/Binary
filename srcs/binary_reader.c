@@ -3,57 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   binary_reader.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:17:25 by awallet           #+#    #+#             */
-/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
+/*   Updated: 2022/08/30 16:49:45 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/binary.h"
 
-unsigned int	ft_rbool(t_chaineoctet *self)
+int	ft_rbool(t_chaineoctet *self)
 {
-	if (self->pos + 1 > self->len)
-		ft_bufferoverflow();
-	return (self->buffer[self->pos++]);
+	int	res;
+
+	res = self->buffer[self->pos++];
+	return (res);
 }
 
-signed int	ft_rbyte(t_chaineoctet *self)
+int	ft_rbyte(t_chaineoctet *self)
 {
-	if (self->pos + 1 > self->len)
-		ft_bufferoverflow();
-	return (self->buffer[self->pos++] & 0xFF);
+	int	res;
+
+	res = (self->buffer[self->pos++] & 0xFF);
+	return (res);
 }
 
-signed short	ft_rshort(t_chaineoctet *self)
+short	ft_rshort(t_chaineoctet *self)
 {
-	if (self->pos + 2 > self->len)
-		ft_bufferoverflow();
-	return ((self->buffer[self->pos++] & 0xFF) << 8
-		| (self->buffer[self->pos++] & 0xFF));
+	short	res;
+
+	res = ((self->buffer[self->pos++] & 0xFF) << 8);
+	res |= (self->buffer[self->pos++] & 0xFF);
+	return (res);
 }
 
-signed int	ft_rint(t_chaineoctet *self)
+int	ft_rint(t_chaineoctet *self)
 {
-	if (self->pos + 4 > self->len)
-		ft_bufferoverflow();
-	return ((self->buffer[self->pos++] & 0xFF) << 24
-		| (self->buffer[self->pos++] & 0xFF) << 16
-		| (self->buffer[self->pos++] & 0xFF) << 8
-		| (self->buffer[self->pos++] & 0xFF));
-}
+	int	res;
 
-signed long int	ft_rlong(t_chaineoctet *self)
-{
-	if (self->pos + 8 > self->len)
-		ft_bufferoverflow();
-	return ((self->buffer[self->pos++] & 0xFF) << 56
-		| (self->buffer[self->pos++] & 0xFF) << 48
-		| (self->buffer[self->pos++] & 0xFF) << 40
-		| (self->buffer[self->pos++] & 0xFF) << 32
-		| (self->buffer[self->pos++] & 0xFF) << 24
-		| (self->buffer[self->pos++] & 0xFF) << 16
-		| (self->buffer[self->pos++] & 0xFF) << 8
-		| (self->buffer[self->pos++] & 0xFF));
+	res = ((self->buffer[self->pos++] & 0xFF) << 24);
+	res |= ((self->buffer[self->pos++] & 0xFF) << 16);
+	res |= ((self->buffer[self->pos++] & 0xFF) << 8);
+	res |= (self->buffer[self->pos++] & 0xFF);
+	return (res);
 }

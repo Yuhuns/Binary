@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_write_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 21:06:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
+/*   Updated: 2022/08/30 17:07:23 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int     main(int ac, char **av)
  
         fichier = fopen(av[1], "wb");
 
-        buf = ft_instanciate(42);
+        buf = ft_instanciate(1024);
         ft_wbrutechaine(buf, "42"); //magic header
         ft_wichaine(buf, "string");
         ft_wbchaine(buf, "42");
