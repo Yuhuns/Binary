@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   binary.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 14:37:50 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 16:25:27 by awallet          ###   ########.fr       */
+/*   Updated: 2022/09/01 19:51:47 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define FALSE 0
 # define VERBOSE 0
 # define FILE_HEADER "AWALLET42"
+# define KEY "ABsJ3334AOOBSkkdbrooz::ajaja1188377=="
 # define ENDFILE 26
 # include <stdio.h>
 # include <unistd.h>
