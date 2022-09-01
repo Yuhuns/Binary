@@ -6,7 +6,7 @@
 /*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 15:12:51 by awallet           #+#    #+#             */
-/*   Updated: 2022/09/01 20:02:48 by awallet          ###   ########.fr       */
+/*   Updated: 2022/09/01 20:11:18 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 void	packet_code(int e1, int e2, t_chaineoctet *packet)
 {
-	ft_wbyte(packet, e1);
-	ft_wbyte(packet, e2);
+	ft_wshort(packet, (e1 << 8) | (e2 & 255));
 }
 
 void	packet_reader(t_chaineoctet *packet)
 {
+	int	code;
 	int	e1;
 	int	e2;
 	char	*key;
 	
 	ft_init(packet, packet->buffer, packet->len);
-	e1 = ft_rbyte(packet);
-	e2 = ft_rbyte(packet);
+	code = ft_rshort(packet);
+	e1 = code >> 8;
+	e2 = code & 255;
 	printf("PACKET [%d,%d]:\n", e1, e2);
 	if (e1 == 26)
 	{
