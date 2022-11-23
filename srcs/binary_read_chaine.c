@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include <binary.h>
 
 char	*ft_rbchaine(t_chaineoctet *self)
 {
@@ -19,7 +19,8 @@ char	*ft_rbchaine(t_chaineoctet *self)
 	unsigned int	i;
 
 	length = ft_rbyte(self);
-	s = ft_calloc(1, sizeof(char *) * length);
+	printf("lec length = %i\n", length);
+	s = memg(MALLOC, sizeof(char) * length, NULL, BINARY);
 	if (!s)
 		return (NULL);
 	i = -1;
@@ -33,7 +34,7 @@ char	*ft_rbrutechaine(t_chaineoctet *self)
 	char			*s;
 	unsigned int	i;
 
-	s = ft_calloc(1, sizeof(char *));
+	s = memg(MALLOC, sizeof(char), NULL, BINARY);
 	if (!s)
 		return (NULL);
 	i = -1;
@@ -49,7 +50,8 @@ char	*ft_rschaine(t_chaineoctet *self)
 	unsigned int	i;
 
 	length = ft_rshort(self);
-	s = ft_calloc(1, sizeof(char *) * length);
+	printf("lec (short) length = %i\n", length);
+	s = memg(MALLOC, sizeof(char) * length, NULL, BINARY);
 	if (!s)
 		return (NULL);
 	i = -1;
@@ -65,7 +67,7 @@ char	*ft_richaine(t_chaineoctet *self)
 	char	*s;
 
 	length = ft_rint(self);
-	s = ft_calloc(1, sizeof(char *) * length);
+	s = memg(MALLOC, sizeof(char) * length, NULL, BINARY);
 	if (!s)
 		return (NULL);
 	i = -1;

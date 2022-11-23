@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include <binary.h>
 
 unsigned int	ft_rubyte(t_chaineoctet *self)
 {

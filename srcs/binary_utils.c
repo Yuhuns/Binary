@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include <binary.h>
 
 void	ft_bufferoverflow(void)
 {

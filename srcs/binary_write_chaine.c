@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include <binary.h>
 
 void	ft_wbrutechaine(t_chaineoctet *self, char *string)
 {
@@ -34,7 +34,8 @@ void	ft_wbchaine(t_chaineoctet *self, char *string)
 	length = 0;
 	if (*string)
 	{
-		length = ft_strlen(string);
+		length = ft_strlen(string) + 1;
+		printf("wrt length = %li\n", length);
 		ft_wbyte(self, length);
 		self->len += length;
 		while (*string)
@@ -49,7 +50,8 @@ void	ft_wschaine(t_chaineoctet *self, char *string)
 	length = 0;
 	if (*string)
 	{
-		length = ft_strlen(string);
+		length = ft_strlen(string) + 1;
+		printf("wrt (short) length = %li\n", length);
 		ft_wshort(self, length);
 		self->len += length;
 		while (*string)
@@ -64,7 +66,7 @@ void	ft_wichaine(t_chaineoctet *self, char *string)
 	length = 0;
 	if (*string)
 	{
-		length = ft_strlen(string);
+		length = ft_strlen(string) + 1;
 		ft_wint(self, length);
 		self->len += length;
 		while (*string)

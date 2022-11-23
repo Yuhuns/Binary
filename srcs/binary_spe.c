@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include <binary.h>
 
 static unsigned int	ft_hasmore(int rest, int end, int entier)
 {

@@ -24,6 +24,7 @@ void	packet_reader(t_chaineoctet *packet)
 	int	e2;
 	char	*key;
 	
+	key = NULL;
 	ft_init(packet, packet->buffer, packet->len);
 	code = ft_rshort(packet);
 	e1 = code >> 8;
@@ -38,7 +39,6 @@ void	packet_reader(t_chaineoctet *packet)
 				printf("KEY: CORRECT !\n");
 			else
 				printf("KEY: BAD (%s) !\n", key);
-			free(key);
 		}
 		else if (e2 == 27)
 		{
@@ -49,7 +49,6 @@ void	packet_reader(t_chaineoctet *packet)
 		else
 			printf("Unknown packet (%d,%d)\n", e1, e2);
 	}
-	free(packet);
 }
 
 t_chaineoctet	*packet_init(void)
@@ -57,6 +56,8 @@ t_chaineoctet	*packet_init(void)
 	t_chaineoctet	*packet;
 	
 	packet = ft_instanciate(1024);
+	if (!packet)
+		return (perror("instanciate"), NULL);
 	packet_code(26, 26, packet);
 	ft_wbchaine(packet, "ABsJ3334AOOBSkkdbrooz::ajaja1188377==");
 	return (packet);
@@ -67,6 +68,8 @@ t_chaineoctet	*packet_test(void)
 	t_chaineoctet	*packet;
 	
 	packet = ft_instanciate(1024);
+	if (!packet)
+		return (perror("instanciate"), NULL);
 	packet_code(26, 27, packet);
 	ft_wschaine(packet, "This is a test for bool instruction...");
 	ft_wbool(packet, TRUE);
@@ -77,10 +80,14 @@ t_chaineoctet	*packet_test(void)
 int	main(void)
 {
 	t_chaineoctet	*packet;
+	t_data			*data;
 
+	init_data(&data);
 	packet = packet_init();
+	if (!packet)
+		return (exit(1), 1);
 	packet_reader(packet);
 	packet = packet_test();
 	packet_reader(packet);
-	free(packet->buffer);
+	memg(PURGE, 0, NULL, 0);
 }

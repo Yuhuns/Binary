@@ -10,16 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include <binary.h>
+
+t_data	*get_data(void)
+{
+	static t_data	data;
+
+	return (&data);
+}
 
 t_chaineoctet	*ft_instanciate(unsigned int bufsize)
 {
 	t_chaineoctet	*self;
 
-	self = malloc(sizeof(t_chaineoctet));
+	self = memg(MALLOC, sizeof(t_chaineoctet), NULL, BINARY);
 	if (!self)
-		return (NULL);
-	self->buffer = ft_calloc(1, bufsize);
+		return (perror("malloc"), NULL);
+	self->buffer = memg(MALLOC, bufsize, NULL, BINARY);
+	if (!self->buffer)
+		return (perror("malloc"), NULL);
 	self->bufsize = bufsize;
 	self->len = 0;
 	self->pos = 0;

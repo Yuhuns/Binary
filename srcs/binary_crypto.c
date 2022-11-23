@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include <binary.h>
 
 void	ft_encrypt(t_chaineoctet *self, unsigned int val)
 {
@@ -30,4 +30,10 @@ void	ft_decrypt(t_chaineoctet *self, unsigned int val)
 	while (index--)
 		self->buffer[index] = (self->buffer[index]
 				^ self->buffer[index - 1]) ^ (val & 255);
+}
+
+void	init_data(t_data **data)
+{
+	*data = get_data();
+	(*data)->garbage = NULL;
 }

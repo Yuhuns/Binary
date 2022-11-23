@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/binary.h"
+#include <binary.h>
 
 void	ft_wbool(t_chaineoctet *self, unsigned int valeur)
 {

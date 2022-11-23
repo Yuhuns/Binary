@@ -8,6 +8,7 @@ SRC =	./srcs/binary_crypto.c \
 	./srcs/binary_write_chaine.c \
 	./srcs/binary_writer.c \
 	./srcs/binary.c \
+	./srcs/garbage_memory.c \
 	./main.c \
 
 OBJ = $(SRC:.c=.o)
@@ -16,12 +17,12 @@ DEPS = $(OBJ:.o=.d)
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g3 -Wall -Werror -Wextra
 
 all: $(NAME)
 
 %.o:  %.c 
-	${CC} ${CFLAGS} -MMD -c $< -o $@
+	${CC} ${CFLAGS} -MMD -Iincludes -c $< -o $@
 
 $(NAME) : $(OBJ)
 	$(MAKE) -C libft 

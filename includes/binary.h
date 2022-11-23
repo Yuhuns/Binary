@@ -27,6 +27,29 @@
 # include "../libft/libft.h"
 # include <math.h>
 
+//# define malloc(...) 0;
+
+typedef enum e_label
+{
+	BINARY,
+	OTHER,
+}	t_label;
+
+typedef enum e_mem_t
+{
+	MALLOC,
+	FREE,
+	PURGE,
+	LABEL
+}	t_mem_t;
+
+typedef struct s_garbage
+{
+	void				*address;
+	t_label				label;
+	struct s_garbage	*next;
+}					t_garbage;
+
 typedef struct s_chaineoctet
 {
 	unsigned char	*buffer;
@@ -34,6 +57,11 @@ typedef struct s_chaineoctet
 	unsigned int	len;
 	unsigned int	pos;
 }	t_chaineoctet;
+
+typedef struct s_data
+{
+	t_garbage	*garbage;
+}	t_data;
 
 t_chaineoctet				*ft_instanciate(unsigned int bufsize);
 unsigned int				ft_rubyte(t_chaineoctet *self);
@@ -63,5 +91,14 @@ void						ft_wbyte(t_chaineoctet *self, int entier);
 void						ft_wshort(t_chaineoctet *self, int entier);
 void						ft_wint(t_chaineoctet *self, int entier);
 void						ft_init(t_chaineoctet *bin, unsigned char *b, ...);
+
+void						init_data(t_data **data);
+t_data						*get_data(void);
+
+void						*memg(t_mem_t type, size_t size, void *adr, t_label label);
+void						*free_label(t_garbage *garbage, t_label label);
+void						*free_adr(t_garbage *garbage, void *adr);
+void						*purge_garbage(t_garbage *garbage);
+void						*add_garbage(t_data *data, size_t size, void *adr, t_label label);
 
 #endif
