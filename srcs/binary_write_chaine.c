@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   binary_write_chaine.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:17:17 by awallet           #+#    #+#             */
-/*   Updated: 2022/06/02 19:28:53 by awallet          ###   ########.fr       */
+/*   Updated: 2022/11/25 18:56:38 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <binary.h>
 
-void	ft_wbrutechaine(t_chaineoctet *self, char *string)
+void	ft_wbrutechaine(t_chaineoctet *self, char *string, int eof)
 {
 	size_t	length;
 
@@ -23,39 +23,41 @@ void	ft_wbrutechaine(t_chaineoctet *self, char *string)
 		self->len += length;
 		while (*string)
 			self->buffer[self->pos++] = *string++;
-		self->buffer[self->pos++] = ENDFILE;
+		self->buffer[self->pos++] = eof;
 	}
 }
 
 void	ft_wbchaine(t_chaineoctet *self, char *string)
 {
 	size_t	length;
+	int		i;
 
 	length = 0;
-	if (*string)
+	i = -1;
+	if (string)
 	{
-		length = ft_strlen(string) + 1;
-		printf("wrt length = %li\n", length);
+		length = ft_strlen(string);
 		ft_wbyte(self, length);
 		self->len += length;
-		while (*string)
-			self->buffer[self->pos++] = *string++;
+		while (*(string + ++i))
+			self->buffer[self->pos++] = *(string + i);
 	}
 }
 
 void	ft_wschaine(t_chaineoctet *self, char *string)
 {
 	size_t	length;
+	int		i;
 
 	length = 0;
-	if (*string)
+	i = -1;
+	if (string)
 	{
-		length = ft_strlen(string) + 1;
-		printf("wrt (short) length = %li\n", length);
+		length = ft_strlen(string);
 		ft_wshort(self, length);
 		self->len += length;
-		while (*string)
-			self->buffer[self->pos++] = *string++;
+		while (*(string + ++i))
+			self->buffer[self->pos++] = *(string + i);
 	}
 }
 
@@ -66,7 +68,7 @@ void	ft_wichaine(t_chaineoctet *self, char *string)
 	length = 0;
 	if (*string)
 	{
-		length = ft_strlen(string) + 1;
+		length = ft_strlen(string);
 		ft_wint(self, length);
 		self->len += length;
 		while (*string)

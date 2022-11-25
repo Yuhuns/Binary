@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:52:06 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 16:53:55 by awallet          ###   ########.fr       */
+/*   Updated: 2022/11/25 19:03:07 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_ecr(t_chaineoctet *self, int entier)
 	int	spe;
 
 	rest = entier >> 7;
-	has_more = TRUE;
+	has_more = true;
 	if ((entier & 0x80000000) == 0)
 		end = 0;
 	else

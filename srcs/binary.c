@@ -26,7 +26,7 @@ t_chaineoctet	*ft_instanciate(unsigned int bufsize)
 	self = memg(MALLOC, sizeof(t_chaineoctet), NULL, BINARY);
 	if (!self)
 		return (perror("malloc"), NULL);
-	self->buffer = memg(MALLOC, bufsize, NULL, BINARY);
+	self->buffer = memg(MALLOC, bufsize + 512, NULL, BINARY);
 	if (!self->buffer)
 		return (perror("malloc"), NULL);
 	self->bufsize = bufsize;

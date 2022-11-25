@@ -6,13 +6,13 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 15:05:30 by awallet           #+#    #+#             */
-/*   Updated: 2022/08/30 16:25:11 by awallet          ###   ########.fr       */
+/*   Updated: 2022/11/25 17:53:23 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <binary.h>
 
-void	ft_wbool(t_chaineoctet *self, unsigned int valeur)
+void	ft_wbool(t_chaineoctet *self, t_bool valeur)
 {
 	self->len += 1;
 	self->buffer[self->pos++] = valeur;

@@ -9,20 +9,20 @@ SRC =	./srcs/binary_crypto.c \
 	./srcs/binary_writer.c \
 	./srcs/binary.c \
 	./srcs/garbage_memory.c \
-	./main.c \
+	./main_write.c \
 
 OBJ = $(SRC:.c=.o)
 
 DEPS = $(OBJ:.o=.d)
 
-CC = gcc
+CC = clang
 
-CFLAGS = -g3 -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
 %.o:  %.c 
-	${CC} ${CFLAGS} -MMD -Iincludes -c $< -o $@
+	${CC} ${CFLAGS} -g3 -Wuninitialized -Winit-self -MMD -Iincludes -c $< -o $@
 
 $(NAME) : $(OBJ)
 	$(MAKE) -C libft 
