@@ -7,9 +7,10 @@ SRC =	./srcs/binary_crypto.c \
 	./srcs/binary_utils.c \
 	./srcs/binary_write_chaine.c \
 	./srcs/binary_writer.c \
+	./srcs/binary_unsigned_reader.c \
 	./srcs/binary.c \
 	./srcs/garbage_memory.c \
-	./main_write.c \
+	./main_read.c \
 
 OBJ = $(SRC:.c=.o)
 

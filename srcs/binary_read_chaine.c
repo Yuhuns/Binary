@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:50:02 by awallet           #+#    #+#             */
-/*   Updated: 2022/11/25 18:57:00 by awallet          ###   ########.fr       */
+/*   Updated: 2022/12/07 17:23:38 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,21 @@ char	*ft_rbrutechaine(t_chaineoctet *self, int eof)
 	while (self->buffer[self->pos] != eof)
 		s[++i] = self->buffer[self->pos++];
 	s[++i] = '\0';
+	return (s);
+}
+
+char	*ft_rlenbrutechaine(t_chaineoctet *self, int len)
+{
+	char			*s;
+	int				i;
+
+	s = memg(MALLOC, len + 1, NULL, BINARY);
+	if (!s)
+		return (NULL);
+	i = -1;
+	while (++i < len)
+		s[i] = self->buffer[self->pos++];
+	s[i++] = '\0';
 	return (s);
 }
 

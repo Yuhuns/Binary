@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 14:37:50 by awallet           #+#    #+#             */
-/*   Updated: 2022/11/25 19:00:08 by awallet          ###   ########.fr       */
+/*   Updated: 2022/12/07 18:02:14 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ unsigned int				ft_rushort(t_chaineoctet *self);
 unsigned int				ft_getpos(t_chaineoctet	*this);
 int							ft_rbool(t_chaineoctet *self);
 int							ft_rbyte(t_chaineoctet *self);
+unsigned long				ft_rlong(t_chaineoctet *self);
 int							ft_rint(t_chaineoctet *self);
 int							ft_lec(t_chaineoctet *self);
 short						ft_rshort(t_chaineoctet *self);
@@ -80,6 +81,7 @@ char						*ft_rbchaine(t_chaineoctet *self);
 char						*ft_rschaine(t_chaineoctet *self);
 char						*ft_richaine(t_chaineoctet *self);
 char						*ft_rbrutechaine(t_chaineoctet *self, int eof);
+char						*ft_rlenbrutechaine(t_chaineoctet *self, int len);
 void						ft_ecr(t_chaineoctet *self, int entier);
 void						ft_bufferoverflow(void);
 void						ft_hexdump(t_chaineoctet *buf);
@@ -88,6 +90,8 @@ void						ft_wschaine(t_chaineoctet *self, char *string);
 void						ft_wichaine(t_chaineoctet *self, char *string);
 void						ft_wbrutechaine(t_chaineoctet *self, char *string,
 								int eof);
+void						ft_wlenbrutechaine(t_chaineoctet *self,
+								char *string);
 void						ft_chardump(t_chaineoctet *buf);
 void						ft_encrypt(t_chaineoctet *self, unsigned int val);
 void						ft_decrypt(t_chaineoctet *self, unsigned int val);

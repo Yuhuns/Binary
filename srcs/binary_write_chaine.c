@@ -6,7 +6,7 @@
 /*   By: awallet <awallet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:17:17 by awallet           #+#    #+#             */
-/*   Updated: 2022/11/25 18:56:38 by awallet          ###   ########.fr       */
+/*   Updated: 2022/12/07 17:10:27 by awallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ void	ft_wbrutechaine(t_chaineoctet *self, char *string, int eof)
 		while (*string)
 			self->buffer[self->pos++] = *string++;
 		self->buffer[self->pos++] = eof;
+	}
+}
+
+void	ft_wlenbrutechaine(t_chaineoctet *self, char *string)
+{
+	if (*string)
+	{
+		self->len += ft_strlen(string);
+		while (*string)
+			self->buffer[self->pos++] = *string++;
 	}
 }
 
